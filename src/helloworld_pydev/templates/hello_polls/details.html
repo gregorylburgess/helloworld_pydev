@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Hello_Polls: MyPolls: Detail
+{% endblock title %}
+
+{% block top %}
+	<font style="color:white;"> <h1>{{mypoll.question}}:</h1> </font>
+{% endblock top %}
+
+{% block content %}
+	{{poll}}
+	{% if error_message %} <p><b>{{error_message}}</b></p>{% endif %}
+	
+	<form action="/hello_polls/{{mypoll.id}}/vote/" method="post">
+		{% csrf_token %} 
+		{% for choice in mypoll.mychoice_set.all %}
+			<input type="radio" name = "choice" id = "choice{{forloop.counter}}" value = "{{choice.id}}" />
+			<label for="choice{{forloop.counter}}">{{choice.choice}} </label><br>
+		{% endfor %}
+		<input type="submit" value="Vote!"/>
+	</form>
+{% endblock content %}

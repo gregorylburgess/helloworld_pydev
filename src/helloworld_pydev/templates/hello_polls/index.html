@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+{% block title %}
+	Hello_Polls: MyPolls
+{% endblock title %}
+
+{% block top %}
+	<font style="color:white;"> <h1>Recent Polls:</h1> </font>
+{% endblock top %}
+
+{% block content %}
+	{% for poll in poll_list %}
+		{{poll}}<br>
+{% endfor %}
+{% endblock content %}

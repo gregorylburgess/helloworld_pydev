@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <style>
+    	/* Taken from CSSeasy.com. */
+		body{ 
+		background-color:#333;
+		font-size:16px; 
+		margin:0; 
+		padding:0; 
+		}
+		
+		#header{ 
+		background-color:#333;
+		}
+		
+		#left{ 
+		float:left;
+		width:100px;
+		background-color:#dc8; 
+		min-height:350px; /* for modern browsers */
+		height:auto !important; /* for modern browsers */
+		height:350px; /* for IE5.x and IE6 */
+		}
+		
+		#center { 
+		margin-left:100px;
+		background-color:#eec; 
+		min-height:350px; /* for modern browsers */
+		height:auto !important; /* for modern browsers */
+		height:350px; /* for IE5.x and IE6 */
+		}
+		
+		#footer { 
+		clear:both;
+		background-color:#333;
+		}
+	</style>
+</head>
+
+<body>
+<div id="header">
+{% block top %} {% endblock top %}
+</div>
+
+<div id="left">
+</div>
+
+<div id="center">
+	{% block content %}{% endblock content %}
+ </div>
+ 
+<div id="footer">
+</div>
+
+</body>
+</html>

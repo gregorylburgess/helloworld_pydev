@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Hello_Polls: MyPolls: Results{% endblock title %}
+{% block top %}<font style="color:white;"><h1>{{mypoll}}</h1></font>{% endblock top %}
+{% block content %}
+	<h3>Results:</h3>
+	<ul>
+		{% for choice in mypoll.mychoice_set.all %}
+			<li>{{choice.choice}} -- {{choice.votes}} vote{{choice.votes|pluralize}}</li>
+		{% endfor %}
+	</ul>
+<a href="/hello_polls/{{mypoll.id}}/">Vote Again?</a>
+{% endblock content %}
